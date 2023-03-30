@@ -25,7 +25,6 @@ export default async function sendRequest(
   //   });
 
     const res = await fetch(`https://www.loveai.fun/api/generate`, {
-        method: 'POST',
         body: JSON.stringify({
             apiKey: openaiApiKey,
             messages: messages,
