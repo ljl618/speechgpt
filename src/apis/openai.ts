@@ -15,12 +15,27 @@ export default async function sendRequest(
     }),
   };
 
-  fetch('https://api.openai.com/v1/chat/completions', requestOptions)
-    .then(response => response.json())
+  // fetch('https://www.loveai.fun/api/generate', requestOptions)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     callback(data);
+  //   })
+  //   .catch(err => {
+  //     return err;
+  //   });
+
+    const res = await fetch(`https://www.loveai.fun/api/generate`, {
+        method: 'POST',
+        body: JSON.stringify({
+            apiKey: openaiApiKey,
+            messages: messages,
+        }),
+    }).then(async (response) => response.json())
     .then(data => {
       callback(data);
     })
     .catch(err => {
       return err;
     });
+
 }
